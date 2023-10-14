@@ -18,18 +18,24 @@ function sortSelectedProperties(editor: vscode.TextEditor | undefined): void {
 	const selectedText: string = document.getText(selection);
 	const lines: string[] = selectedText.split(/\r?\n/);
 
-	const selectors: { index: number, line: string }[] = [];
 	const comments: { index: number, line: string }[] = [];
+	const webkits: { index: number, line: string }[] = [];
+	const selectors: { index: number, line: string }[] = [];
 
 	const knownProperties: string[] = lines
 		.filter((line, index) => {
 			const isComment = line.trim().startsWith('//');
-
+			const isDash = line.trim().startsWith('-');
 			const isSelector = /^[.#%@&[\](){}=^_:*+>~ !>`'"-]/.test(line.trim());
 
 			if (isComment) {
 				comments.push({ index, line });
 				return false; // Exclude comments from known properties
+			}
+
+			if (isDash) {
+				webkits.push({ index, line });
+				return false; // Exclude webkits from known properties
 			}
 
 			if (isSelector) {
@@ -53,6 +59,12 @@ function sortSelectedProperties(editor: vscode.TextEditor | undefined): void {
 		vscode.window.showWarningMessage('No selectors allowed in the selection.');
 		return;
 	}
+
+	// Add webkits back to the known properties array after the last property
+	webkits.forEach(({ line }) => {
+		knownProperties.push(line);
+	});
+
 
 	// Re-insert comments in their original positions
 	comments.forEach(({ index, line }) => {
