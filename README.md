@@ -1,6 +1,6 @@
 # CSS Property Organizer
 
-![Version](https://img.shields.io/badge/version-0.1.1-brightgreen.svg)
+![Version](https://img.shields.io/badge/version-0.1.2-brightgreen.svg)
 ![VS Code](https://img.shields.io/badge/vs%20code-%5E1.82.0-blue.svg)
 ![License](https://img.shields.io/badge/license-Mozilla%20Public%20License%202.0-blue.svg)
 
@@ -44,10 +44,17 @@
 
 ---
 
+## Roadmap
+
+- [ ] Add the ability to sort selectors and nested selectors.
+- [ ] Implement sorting for an entire file.
+
+---
+
 ## Contributing
 
 1. Fork the repository.
-2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/css-property-organizer.git`.
+2. Clone your fork: `git clone https://github.com/julesdeckers/scss-property-sort.git`.
 3. Create a new branch: `git checkout -b feature/your-feature`.
 4. Make your changes and commit them: `git commit -m 'Add some feature'`.
 5. Push to the branch: `git push origin feature/your-feature`.
@@ -63,10 +70,10 @@
 
 ## Credits
 
-This extension is maintained by [Your Name](https://github.com/YOUR-USERNAME).
+This extension is maintained by [julesdeckers](https://github.com/julesdeckers).
 
 ---
 
 **Enjoy!** 🎉
 
-If you have any questions or suggestions, feel free to [open an issue](https://github.com/YOUR-USERNAME/css-property-organizer/issues). We'd love to hear from you!
+If you have any questions or suggestions, feel free to [open an issue](https://github.com/julesdeckers/scss-property-sort/issues). We'd love to hear from you!

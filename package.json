@@ -2,7 +2,7 @@
   "name": "css-property-sort",
   "displayName": "CSS & SCSS Property Sort",
   "description": "Extension for organizing and sorting CSS and SCSS properties",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "julesdeckers",
   "icon": "icon.png",
   "repository": {
