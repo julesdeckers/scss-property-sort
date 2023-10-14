@@ -3,6 +3,7 @@
   "displayName": "CSS & SCSS Property Sort",
   "description": "Extension for organizing and sorting CSS and SCSS properties",
   "version": "0.1.0",
+  "publisher": "julesdeckers",
   "repository": {
     "type": "git",
     "url": "https://github.com/julesdeckers/scss-property-sort.git"
