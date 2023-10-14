@@ -18,18 +18,23 @@
 
 ## Installation
 
+**Production**
 1. Launch Visual Studio Code.
 2. Go to Extensions (Ctrl+Shift+X).
-3. Search for **CSS Property Organizer**.
+3. Search for **CSS Property Sort**.
 4. Install and reload the editor.
+
+**Development**
+1. Press F5
 
 ---
 
 ## Usage
 
 1. Open a CSS or SCSS file.
-2. Select the properties you want to organize.
-3. Right-click and choose **Organize CSS Properties** from the context menu.
+2. Select the properties you want to organize (no selectors, only properties).
+3. In the Command Palette select **Sort CSS/SCSS property list** or press ![Ctrl+Alt+s](https://placehold.it/15/000000/000000?text=+) **Ctrl+Alt+s** (Windows/Linux) or ![Cmd+Alt+s](https://placehold.it/15/000000/000000?text=+) **Cmd+Alt+s** (Mac).
+
 
 ---
 
