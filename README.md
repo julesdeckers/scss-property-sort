@@ -1,6 +1,6 @@
 # CSS Property Organizer
 
-![Version](https://img.shields.io/badge/version-0.1.2-brightgreen.svg)
+![Version](https://img.shields.io/badge/version-0.1.4-brightgreen.svg)
 ![VS Code](https://img.shields.io/badge/vs%20code-%5E1.82.0-blue.svg)
 ![License](https://img.shields.io/badge/license-Mozilla%20Public%20License%202.0-blue.svg)
 
@@ -38,14 +38,9 @@
 
 ---
 
-## Settings
-
-- `cssPropertyOrganizer.sortOrder`: Specify the order in which properties are sorted. Options: `alphabetical`, `grouped`.
-
----
-
 ## Roadmap
 
+- [ ] Adjust predefined property order
 - [ ] Add the ability to sort selectors and nested selectors.
 - [ ] Implement sorting for an entire file.
 
