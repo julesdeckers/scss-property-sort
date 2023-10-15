@@ -1,5 +1,12 @@
 ## Changelog
 
+### [0.1.4] - 2023-10-15
+
+- **Changed**:
+  - Updated `CHANGELOG.md`.
+  - Updated `README.md` version + roadmap.
+  - Updated `package.json` version.
+
 ### [0.1.3] - 2023-10-14
 
 - **Changed**:
