@@ -16,6 +16,8 @@ export const PROPERTY_ORDER: string[] = [
   'overflow',
   'overflow-x',
   'overflow-y',
+  'scrollbar-gutter',
+  'scroll-behavior',
   // Flexbox
   'flex',
   'flex-grow',
@@ -57,6 +59,7 @@ export const PROPERTY_ORDER: string[] = [
   'height',
   'min-height',
   'max-height',
+  'aspect-ratio',
   // Spacing
   'margin',
   'margin-top',
@@ -137,6 +140,10 @@ export const PROPERTY_ORDER: string[] = [
   'border-bottom-color',
   'border-left-color',
   'border-radius',
+  'border-top-left-radius',
+  'border-top-right-radius',
+  'border-bottom-left-radius',
+  'border-bottom-right-radius',
   'border-spacing',
   'border-collapse',
   'border-image',
