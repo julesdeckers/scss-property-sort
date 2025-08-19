@@ -20,17 +20,24 @@ function sortSelectedProperties(editor: vscode.TextEditor | undefined): void {
 
 	const comments: { index: number, line: string }[] = [];
 	const webkits: { index: number, line: string }[] = [];
+	const cssCustomProperties: { index: number, line: string }[] = [];
 	const selectors: { index: number, line: string }[] = [];
 
 	const knownProperties: string[] = lines
 		.filter((line, index) => {
 			const isComment = line.trim().startsWith('//');
-			const isDash = line.trim().startsWith('-');
+			const isCssCustomProperty = line.trim().startsWith('--');
+			const isDash = line.trim().startsWith('-') && !isCssCustomProperty;
 			const isSelector = /^[.#%@&[\](){}=^_:*+>~ !>`'"-]/.test(line.trim());
 
 			if (isComment) {
 				comments.push({ index, line });
 				return false; // Exclude comments from known properties
+			}
+
+			if (isCssCustomProperty) {
+				cssCustomProperties.push({ index, line });
+				return false; // Exclude CSS custom properties from known properties - they'll be sorted separately
 			}
 
 			if (isDash) {
@@ -60,18 +67,35 @@ function sortSelectedProperties(editor: vscode.TextEditor | undefined): void {
 		return;
 	}
 
-	// Add webkits back to the known properties array after the last property
-	webkits.forEach(({ line }) => {
-		knownProperties.push(line);
+	// Sort CSS custom properties alphabetically
+	cssCustomProperties.sort((a, b) => {
+		const aProperty: string = a.line.trim().split(':')[0];
+		const bProperty: string = b.line.trim().split(':')[0];
+		return aProperty.localeCompare(bProperty);
 	});
 
+	// Start with CSS custom properties at the top
+	const sortedProperties: string[] = [];
+	cssCustomProperties.forEach(({ line }) => {
+		sortedProperties.push(line);
+	});
+
+	// Add regular properties after CSS custom properties
+	knownProperties.forEach(line => {
+		sortedProperties.push(line);
+	});
+
+	// Add webkits back to the array after the regular properties
+	webkits.forEach(({ line }) => {
+		sortedProperties.push(line);
+	});
 
 	// Re-insert comments in their original positions
 	comments.forEach(({ index, line }) => {
-		knownProperties.splice(index, 0, line);
+		sortedProperties.splice(index, 0, line);
 	});
 
-	const sortedText: string = knownProperties.join('\n');
+	const sortedText: string = sortedProperties.join('\n');
 
 	editor.edit((editBuilder: vscode.TextEditorEdit) => {
 		editBuilder.replace(selection, sortedText);
